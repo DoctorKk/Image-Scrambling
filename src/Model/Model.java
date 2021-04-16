@@ -1,10 +1,11 @@
 package src.Model;
 
 import java.io.File;
+import java.awt.image.*;
 
 public class Model {
     private static File srcImage;
-    private static File desImage;
+    private static BufferedImage desImage;
 
     static {
         srcImage = null;
@@ -15,7 +16,7 @@ public class Model {
         return srcImage;
     }
 
-    public static File getDesImage() {
+    public static BufferedImage getDesImage() {
         return desImage;
     }
 
@@ -23,7 +24,7 @@ public class Model {
         srcImage = file;
     }
 
-    public static void setDesImage(File file) {
+    public static void setDesImage(BufferedImage file) {
         desImage = file;
     }
 

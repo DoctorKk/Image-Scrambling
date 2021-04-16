@@ -24,7 +24,6 @@ public class View extends JFrame {
     private View() {
         super();
         init();
-
     }
 
     private void init() {

@@ -43,13 +43,34 @@ public class MyPanel extends JPanel {
         btnArnold.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Controller.showFileSaveDialog(null, "Arnold", 50);
+                Controller.imageScrambling(null, "Arnold", 50);
             }
         });
 
-        Box vBox = Box.createHorizontalBox();
+        final JButton btnLogistic = new JButton();
+        btnLogistic.setText("Logistic");
+        btnLogistic.setBorderPainted(true);
+        btnLogistic.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageScrambling(null, "Logistic", 50);
+            }
+        });
+
+        final JButton btnSave = new JButton();
+        btnSave.setText("保存图片");
+        btnSave.setBorderPainted(true);
+        btnSave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageScrambling(null, "Logistic", 50);
+            }
+        });
+
+        Box vBox = Box.createVerticalBox();
         vBox.add(btnChoose);
         vBox.add(btnArnold);
+        vBox.add(btnLogistic);
         add(vBox, BorderLayout.WEST);
     }
 

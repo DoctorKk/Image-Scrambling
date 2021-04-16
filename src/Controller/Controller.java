@@ -2,6 +2,7 @@ package src.Controller;
 
 import src.Model.*;
 import src.View.MyPanel;
+import src.View.View;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -38,29 +39,43 @@ public class Controller {
         }
     }
 
-    public static void showFileSaveDialog(Component parent, String choice, int peroid) {
-        // JFileChooser fileChooser = new JFileChooser();
+    public static void imageScrambling(Component parent, String choice, int peroid) {
 
-        // fileChooser.setSelectedFile(new File("File"));
-
-        // int result = fileChooser.showSaveDialog(parent);
-
-        // if (result == JFileChooser.APPROVE_OPTION) {
-
-        // File file = fileChooser.getSelectedFile();
         try {
             Class<?> temp = Class.forName("src.Model." + choice);
             Scramble cal = (Scramble) temp.newInstance();
             // cal.scrambling(Model.getSrcImage(), file, peroid);
-
-            ImageIcon tempImage = new ImageIcon(cal.scrambling(Model.getSrcImage(), peroid));
+            Model.setDesImage(cal.scrambling(Model.getSrcImage(), peroid));
+            ImageIcon tempImage = new ImageIcon(Model.getDesImage());
 
             MyPanel.getInstance().setDesImage(tempImage.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
+            View.getInstance().pack();
         } catch (Exception t) {
             t.printStackTrace();
             System.out.println("Something went wrong while saving");
         }
         // }
+    }
+
+    public static void imageSaveFile(Component parent) {
+        JFileChooser fileChooser = new JFileChooser();
+
+        fileChooser.setSelectedFile(new File("File"));
+
+        int result = fileChooser.showSaveDialog(parent);
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+
+            File file = fileChooser.getSelectedFile();
+            BufferedImage desImage = Model.getDesImage();
+            try {
+                ImageIO.write(desImage, "jpg", file);
+                // Model.setDesImage(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     public static boolean isImage(File file) {
