@@ -30,6 +30,7 @@ public class Controller {
                     Model.setSrcImage(file);
                     ImageIcon temp = new ImageIcon(file.getCanonicalPath());
                     MyPanel.getInstance().setSrcImage(temp.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
+                    View.getInstance().pack();
                 } else {
                     System.out.println(file.getAbsolutePath());
                 }
@@ -48,7 +49,8 @@ public class Controller {
             Model.setDesImage(cal.scrambling(Model.getSrcImage(), peroid));
             ImageIcon tempImage = new ImageIcon(Model.getDesImage());
 
-            MyPanel.getInstance().setDesImage(tempImage.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
+            MyPanel.getInstance().setDesImage(tempImage.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT),
+                    choice);
             View.getInstance().pack();
         } catch (Exception t) {
             t.printStackTrace();

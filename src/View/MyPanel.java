@@ -71,6 +71,7 @@ public class MyPanel extends JPanel {
         vBox.add(btnChoose);
         vBox.add(btnArnold);
         vBox.add(btnLogistic);
+        vBox.add(btnSave);
         add(vBox, BorderLayout.WEST);
     }
 
@@ -89,10 +90,16 @@ public class MyPanel extends JPanel {
 
     public void setSrcImage(Image srcImage) {
         srcLable.setIcon(new ImageIcon(srcImage));
+        srcLable.setText("SRCImage");
+        srcLable.setVerticalTextPosition(JLabel.BOTTOM);
+        srcLable.setHorizontalTextPosition(JLabel.CENTER);
     }
 
-    public void setDesImage(Image desImage) {
+    public void setDesImage(Image desImage, String name) {
         desLabel.setIcon(new ImageIcon(desImage));
+        desLabel.setText(name);
+        desLabel.setVerticalTextPosition(JLabel.BOTTOM);
+        desLabel.setHorizontalTextPosition(JLabel.CENTER);
     }
 
 }
