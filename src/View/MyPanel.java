@@ -7,7 +7,7 @@ import src.Controller.*;
 
 public class MyPanel extends JPanel {
     private static MyPanel instance;
-    private JLabel srcLable, desLabel;
+    private JLabel srcLable, desLabel, evaluationLabel;
 
     public static MyPanel getInstance() {
         if (instance == null)
@@ -43,7 +43,8 @@ public class MyPanel extends JPanel {
         btnArnold.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Controller.imageScrambling(null, "Arnold", 50);
+                String period = JOptionPane.showInputDialog(null, "迭代次数：");
+                Controller.imageScrambling(null, "Arnold", Integer.valueOf(period));
             }
         });
 
@@ -53,7 +54,8 @@ public class MyPanel extends JPanel {
         btnLogistic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Controller.imageScrambling(null, "Logistic", 50);
+                String period = JOptionPane.showInputDialog(null, "迭代次数：");
+                Controller.imageScrambling(null, "Logistic", Integer.valueOf(period));
             }
         });
 
@@ -63,15 +65,27 @@ public class MyPanel extends JPanel {
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Controller.imageScrambling(null, "Logistic", 50);
+                Controller.imageSaveFile(null);
+            }
+        });
+
+        final JButton btnInformationEntropy = new JButton();
+        btnInformationEntropy.setText("InformationEntropy");
+        btnInformationEntropy.setBorderPainted(true);
+        btnInformationEntropy.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageEvaluation(null, "InformationEntropy");
             }
         });
 
         Box vBox = Box.createVerticalBox();
+        vBox.setPreferredSize(new Dimension(100, 180));
         vBox.add(btnChoose);
         vBox.add(btnArnold);
         vBox.add(btnLogistic);
         vBox.add(btnSave);
+        vBox.add(btnInformationEntropy);
         add(vBox, BorderLayout.WEST);
     }
 
@@ -80,12 +94,21 @@ public class MyPanel extends JPanel {
         srcImage = new ImageIcon(srcImage.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
         srcLable = new JLabel();
         desLabel = new JLabel();
+        evaluationLabel = new JLabel();
         srcLable.setIcon(srcImage);
         // Box vBox = Box.createHorizontalBox();
         // vBox.add(srcLable);
         // vBox.add(desLabel);
         add(srcLable, BorderLayout.CENTER);
         add(desLabel, BorderLayout.EAST);
+        add(evaluationLabel, BorderLayout.SOUTH);
+    }
+
+    public void setEvaluation(String t) {
+        // JLabel temp = new JLabel();
+        evaluationLabel.setText(t);
+        // add(temp, BorderLayout.SOUTH);
+        View.getInstance().pack();
     }
 
     public void setSrcImage(Image srcImage) {

@@ -56,7 +56,6 @@ public class Controller {
             t.printStackTrace();
             System.out.println("Something went wrong while saving");
         }
-        // }
     }
 
     public static void imageSaveFile(Component parent) {
@@ -78,6 +77,19 @@ public class Controller {
             }
 
         }
+    }
+
+    public static void imageEvaluation(Component parent, String choice) {
+        String result = "";
+        try {
+            Class<?> temp = Class.forName("src.Model." + choice);
+            Evaluate cal = (Evaluate) temp.newInstance();
+            result = cal.evaluate();
+            MyPanel.getInstance().setEvaluation(result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return;
     }
 
     public static boolean isImage(File file) {

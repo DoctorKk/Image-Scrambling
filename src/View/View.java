@@ -30,6 +30,7 @@ public class View extends JFrame {
         this.setTitle(title);
         this.setSize(width, height);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
         this.setContentPane(MyPanel.getInstance());
         pack();
         this.setVisible(true);
