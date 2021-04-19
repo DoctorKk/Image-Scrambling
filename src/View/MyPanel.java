@@ -59,6 +59,17 @@ public class MyPanel extends JPanel {
             }
         });
 
+        final JButton btnMagic = new JButton();
+        btnMagic.setText("Magic");
+        btnMagic.setBorderPainted(true);
+        btnMagic.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String period = JOptionPane.showInputDialog(null, "迭代次数：");
+                Controller.imageScrambling(null, "Magic", Integer.valueOf(period));
+            }
+        });
+
         final JButton btnSave = new JButton();
         btnSave.setText("保存图片");
         btnSave.setBorderPainted(true);
@@ -84,6 +95,7 @@ public class MyPanel extends JPanel {
         vBox.add(btnChoose);
         vBox.add(btnArnold);
         vBox.add(btnLogistic);
+        vBox.add(btnMagic);
         vBox.add(btnSave);
         vBox.add(btnInformationEntropy);
         add(vBox, BorderLayout.WEST);

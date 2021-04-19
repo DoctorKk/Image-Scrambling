@@ -1,11 +1,6 @@
 package src.View;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.io.File;
 import javax.swing.*;
-import src.Controller.*;
-import src.Model.*;
 
 //View单例
 public class View extends JFrame {
