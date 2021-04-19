@@ -7,7 +7,8 @@ import src.Controller.*;
 
 public class MyPanel extends JPanel {
     private static MyPanel instance;
-    private JLabel srcLable, desLabel, evaluationLabel;
+    private JLabel srcLable, desLabel;
+    private Box evaluation;
 
     public static MyPanel getInstance() {
         if (instance == null)
@@ -100,6 +101,16 @@ public class MyPanel extends JPanel {
             }
         });
 
+        final JButton btnMass = new JButton();
+        btnMass.setText("Mass");
+        btnMass.setBorderPainted(true);
+        btnMass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageEvaluation(null, "Mass");
+            }
+        });
+
         Box vBox = Box.createVerticalBox();
         vBox.setPreferredSize(new Dimension(100, 180));
         vBox.add(btnChoose);
@@ -108,6 +119,7 @@ public class MyPanel extends JPanel {
         vBox.add(btnMagic);
         vBox.add(btnInformationEntropy);
         vBox.add(btnCov);
+        vBox.add(btnMass);
         vBox.add(btnSave);
         add(vBox, BorderLayout.WEST);
     }
@@ -117,29 +129,29 @@ public class MyPanel extends JPanel {
         srcImage = new ImageIcon(srcImage.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
         srcLable = new JLabel();
         desLabel = new JLabel();
-        evaluationLabel = new JLabel();
+        evaluation = Box.createVerticalBox();
+        // evaluationLabel = new JLabel();
         srcLable.setIcon(srcImage);
         // Box vBox = Box.createHorizontalBox();
         // vBox.add(srcLable);
         // vBox.add(desLabel);
         add(srcLable, BorderLayout.CENTER);
         add(desLabel, BorderLayout.EAST);
+        add(evaluation, BorderLayout.SOUTH);
         // add(evaluationLabel, BorderLayout.SOUTH);
     }
 
     public void setEvaluation(String t) {
         // JLabel temp = new JLabel();
-        Box vBox = Box.createVerticalBox();
+        evaluation.removeAll();
         String[] temp = t.split("\r\n");
         for (String i : temp) {
             JLabel T = new JLabel(i);
             T.setFont(new Font("宋体", Font.PLAIN, 20));
-            vBox.add(T);
+            evaluation.add(T);
         }
-        add(vBox, BorderLayout.SOUTH);
-        // evaluationLabel.setText(t);
-        // evaluationLabel.setFont(new Font("宋体", Font.PLAIN, 20));
-        // add(temp, BorderLayout.SOUTH);
+        evaluation.repaint();
+        // add(evaluation, BorderLayout.SOUTH);
         View.getInstance().pack();
     }
 

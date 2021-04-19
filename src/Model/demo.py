@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
+import sys
 
 def RGB_correlation(channel,N):
   
@@ -124,7 +124,8 @@ def correlation(img,N=3000):
 
 
 def main():
-  img='./des.jpg'
+  print(sys.argv[1])
+  img=sys.argv[1]
   
   R_Rxy,G_Rxy,B_Rxy=correlation(img)
   
