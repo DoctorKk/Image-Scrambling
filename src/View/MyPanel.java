@@ -90,14 +90,25 @@ public class MyPanel extends JPanel {
             }
         });
 
+        final JButton btnCov = new JButton();
+        btnCov.setText("Cov");
+        btnCov.setBorderPainted(true);
+        btnCov.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageEvaluation(null, "Cov");
+            }
+        });
+
         Box vBox = Box.createVerticalBox();
         vBox.setPreferredSize(new Dimension(100, 180));
         vBox.add(btnChoose);
         vBox.add(btnArnold);
         vBox.add(btnLogistic);
         vBox.add(btnMagic);
-        vBox.add(btnSave);
         vBox.add(btnInformationEntropy);
+        vBox.add(btnCov);
+        vBox.add(btnSave);
         add(vBox, BorderLayout.WEST);
     }
 
@@ -113,12 +124,21 @@ public class MyPanel extends JPanel {
         // vBox.add(desLabel);
         add(srcLable, BorderLayout.CENTER);
         add(desLabel, BorderLayout.EAST);
-        add(evaluationLabel, BorderLayout.SOUTH);
+        // add(evaluationLabel, BorderLayout.SOUTH);
     }
 
     public void setEvaluation(String t) {
         // JLabel temp = new JLabel();
-        evaluationLabel.setText(t);
+        Box vBox = Box.createVerticalBox();
+        String[] temp = t.split("\r\n");
+        for (String i : temp) {
+            JLabel T = new JLabel(i);
+            T.setFont(new Font("宋体", Font.PLAIN, 20));
+            vBox.add(T);
+        }
+        add(vBox, BorderLayout.SOUTH);
+        // evaluationLabel.setText(t);
+        // evaluationLabel.setFont(new Font("宋体", Font.PLAIN, 20));
         // add(temp, BorderLayout.SOUTH);
         View.getInstance().pack();
     }
