@@ -51,6 +51,7 @@ public class Mass implements Evaluate {
             GEQ += Math.abs(G1H[i] - G2H[i]);
             BEQ += Math.abs(B1H[i] - B2H[i]);
         }
+
         REQ /= 256;
         GEQ /= 256;
         BEQ /= 256;

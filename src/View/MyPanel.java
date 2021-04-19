@@ -31,6 +31,7 @@ public class MyPanel extends JPanel {
         final JButton btnChoose = new JButton();
         btnChoose.setText("选择图片");
         btnChoose.setBorderPainted(true);
+        btnChoose.setPreferredSize(new Dimension(250, 50));
         btnChoose.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,6 +42,7 @@ public class MyPanel extends JPanel {
         final JButton btnArnold = new JButton();
         btnArnold.setText("Arnold");
         btnArnold.setBorderPainted(true);
+        btnArnold.setPreferredSize(new Dimension(150, 50));
         btnArnold.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -52,6 +54,7 @@ public class MyPanel extends JPanel {
         final JButton btnLogistic = new JButton();
         btnLogistic.setText("Logistic");
         btnLogistic.setBorderPainted(true);
+        btnLogistic.setPreferredSize(new Dimension(150, 50));
         btnLogistic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,6 +66,7 @@ public class MyPanel extends JPanel {
         final JButton btnMagic = new JButton();
         btnMagic.setText("Magic");
         btnMagic.setBorderPainted(true);
+        btnMagic.setPreferredSize(new Dimension(150, 50));
         btnMagic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,6 +78,7 @@ public class MyPanel extends JPanel {
         final JButton btnSave = new JButton();
         btnSave.setText("保存图片");
         btnSave.setBorderPainted(true);
+        btnSave.setPreferredSize(new Dimension(150, 50));
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,8 +87,9 @@ public class MyPanel extends JPanel {
         });
 
         final JButton btnInformationEntropy = new JButton();
-        btnInformationEntropy.setText("InformationEntropy");
+        btnInformationEntropy.setText("Entropy");
         btnInformationEntropy.setBorderPainted(true);
+        btnInformationEntropy.setPreferredSize(new Dimension(150, 50));
         btnInformationEntropy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -94,6 +100,7 @@ public class MyPanel extends JPanel {
         final JButton btnCov = new JButton();
         btnCov.setText("Cov");
         btnCov.setBorderPainted(true);
+        btnCov.setPreferredSize(new Dimension(150, 50));
         btnCov.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,6 +111,7 @@ public class MyPanel extends JPanel {
         final JButton btnMass = new JButton();
         btnMass.setText("Mass");
         btnMass.setBorderPainted(true);
+        btnMass.setPreferredSize(new Dimension(150, 50));
         btnMass.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,8 +119,30 @@ public class MyPanel extends JPanel {
             }
         });
 
+        final JButton btnGVD = new JButton();
+        btnGVD.setText("GVD");
+        btnGVD.setBorderPainted(true);
+        btnGVD.setPreferredSize(new Dimension(150, 50));
+        btnGVD.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageEvaluation(null, "GVD");
+            }
+        });
+
+        final JButton btnBoltzmann = new JButton();
+        btnBoltzmann.setText("Boltzmann");
+        btnBoltzmann.setBorderPainted(true);
+        btnBoltzmann.setPreferredSize(new Dimension(150, 50));
+        btnBoltzmann.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Controller.imageEvaluation(null, "Boltzmann");
+            }
+        });
+
         Box vBox = Box.createVerticalBox();
-        vBox.setPreferredSize(new Dimension(100, 180));
+        vBox.setPreferredSize(new Dimension(100, 350));
         vBox.add(btnChoose);
         vBox.add(btnArnold);
         vBox.add(btnLogistic);
@@ -120,6 +150,8 @@ public class MyPanel extends JPanel {
         vBox.add(btnInformationEntropy);
         vBox.add(btnCov);
         vBox.add(btnMass);
+        vBox.add(btnGVD);
+        vBox.add(btnBoltzmann);
         vBox.add(btnSave);
         add(vBox, BorderLayout.WEST);
     }

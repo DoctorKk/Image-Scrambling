@@ -2,7 +2,6 @@ package src.View;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import src.Model.Model;
 
@@ -11,7 +10,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
-import java.awt.Dimension;
 
 public class DrawBoard extends Panel {
     private static DrawBoard instance;
@@ -37,17 +35,10 @@ public class DrawBoard extends Panel {
         image = new JLabel();
         add(image);
         loadDefaultImage();
-        // this.setFocusable(true);
-        // loadDefaultImage();
-        // setPreferredSize(new Dimension(1079, 1079));
-        // drawImage();
-        // setVisible(true);
     }
 
     private void loadDefaultImage() {
         image.setIcon(new ImageIcon("sample.jpg"));
-        // ImageIcon tempImage = new ImageIcon("../../res/sample.jpg");
-        // backGroundImage = tempImage.getImage();
     }
 
     private void loadImage() {

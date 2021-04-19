@@ -76,7 +76,7 @@ public class Cov implements Evaluate {
         verticalEY /= N;
 
         for (int i = 0; i < N; i++) {
-            verticalDY += (img.getRGB(row[i] + 1, col[i]) - verticalEY) * (img.getRGB(row[i], col[i] + 1) - verticalEY);
+            verticalDY += (img.getRGB(row[i] + 1, col[i]) - verticalEY) * (img.getRGB(row[i] + 1, col[i]) - verticalEY);
         }
         verticalDY /= N;
 
