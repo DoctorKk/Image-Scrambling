@@ -61,8 +61,8 @@ public class InformationEntropy implements Evaluate {
         }
         resultB = resultB / Math.log(2);
 
-        String result = "InformationEntropy     R: " + Double.toString(resultR) + "     " + "G: "
-                + Double.toString(resultG) + "     " + "B: " + Double.toString(resultB);
+        String result = "InfoEntropy   R: " + Double.toString(resultR) + "     " + "G: " + Double.toString(resultG)
+                + "     " + "B: " + Double.toString(resultB);
 
         return result;
 

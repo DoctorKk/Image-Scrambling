@@ -1,7 +1,6 @@
 package src.Model;
 
 import java.io.*;
-import java.util.Arrays;
 import java.awt.image.*;
 import javax.imageio.ImageIO;
 

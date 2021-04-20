@@ -1,6 +1,5 @@
 package src.Model;
 
-import java.io.*;
 import java.util.Random;
 import java.awt.image.*;
 
@@ -33,7 +32,7 @@ public class Cov implements Evaluate {
         double[] Gxy = cal(G, row, col);
         double[] Bxy = cal(B, row, col);
 
-        String result = "Cov-horizion   R: " + Double.toString(Rxy[0]) + "  G: " + Double.toString(Gxy[0]) + "  B: "
+        String result = "Cov-horizon   R: " + Double.toString(Rxy[0]) + "  G: " + Double.toString(Gxy[0]) + "  B: "
                 + Double.toString(Bxy[0]) + "\r\n" + "Cov-vertical   R: " + Double.toString(Rxy[1]) + "   G: "
                 + Double.toString(Gxy[1]) + "   B: " + Double.toString(Bxy[1]);
         return result;

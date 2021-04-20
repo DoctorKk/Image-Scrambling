@@ -11,7 +11,6 @@ public class Boltzmann implements Evaluate {
         BufferedImage img = Model.getDesImage();
 
         int n = img.getWidth();
-        BufferedImage grayImg = new BufferedImage(n, n, BufferedImage.TYPE_BYTE_GRAY);
 
         int entropy = 0;
         int[] enMode = new int[8];

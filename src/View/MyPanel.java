@@ -31,7 +31,7 @@ public class MyPanel extends JPanel {
         final JButton btnChoose = new JButton();
         btnChoose.setText("选择图片");
         btnChoose.setBorderPainted(true);
-        btnChoose.setPreferredSize(new Dimension(250, 50));
+        btnChoose.setPreferredSize(new Dimension(250, 150));
         btnChoose.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,7 +42,7 @@ public class MyPanel extends JPanel {
         final JButton btnArnold = new JButton();
         btnArnold.setText("Arnold");
         btnArnold.setBorderPainted(true);
-        btnArnold.setPreferredSize(new Dimension(150, 50));
+        btnArnold.setPreferredSize(new Dimension(250, 150));
         btnArnold.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -54,7 +54,7 @@ public class MyPanel extends JPanel {
         final JButton btnLogistic = new JButton();
         btnLogistic.setText("Logistic");
         btnLogistic.setBorderPainted(true);
-        btnLogistic.setPreferredSize(new Dimension(150, 50));
+        btnLogistic.setPreferredSize(new Dimension(250, 150));
         btnLogistic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +66,7 @@ public class MyPanel extends JPanel {
         final JButton btnMagic = new JButton();
         btnMagic.setText("Magic");
         btnMagic.setBorderPainted(true);
-        btnMagic.setPreferredSize(new Dimension(150, 50));
+        btnMagic.setPreferredSize(new Dimension(250, 150));
         btnMagic.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,10 +75,22 @@ public class MyPanel extends JPanel {
             }
         });
 
+        final JButton btnMix = new JButton();
+        btnMix.setText("Mix");
+        btnMix.setBorderPainted(true);
+        btnMix.setPreferredSize(new Dimension(250, 150));
+        btnMix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String period = JOptionPane.showInputDialog(null, "迭代次数：");
+                Controller.imageScrambling(null, "Mix", Integer.valueOf(period));
+            }
+        });
+
         final JButton btnSave = new JButton();
         btnSave.setText("保存图片");
         btnSave.setBorderPainted(true);
-        btnSave.setPreferredSize(new Dimension(150, 50));
+        btnSave.setPreferredSize(new Dimension(250, 150));
         btnSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,7 +101,7 @@ public class MyPanel extends JPanel {
         final JButton btnInformationEntropy = new JButton();
         btnInformationEntropy.setText("Entropy");
         btnInformationEntropy.setBorderPainted(true);
-        btnInformationEntropy.setPreferredSize(new Dimension(150, 50));
+        btnInformationEntropy.setPreferredSize(new Dimension(250, 150));
         btnInformationEntropy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,7 +112,7 @@ public class MyPanel extends JPanel {
         final JButton btnCov = new JButton();
         btnCov.setText("Cov");
         btnCov.setBorderPainted(true);
-        btnCov.setPreferredSize(new Dimension(150, 50));
+        btnCov.setPreferredSize(new Dimension(250, 150));
         btnCov.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,7 +123,7 @@ public class MyPanel extends JPanel {
         final JButton btnMass = new JButton();
         btnMass.setText("Mass");
         btnMass.setBorderPainted(true);
-        btnMass.setPreferredSize(new Dimension(150, 50));
+        btnMass.setPreferredSize(new Dimension(250, 150));
         btnMass.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,7 +134,7 @@ public class MyPanel extends JPanel {
         final JButton btnGVD = new JButton();
         btnGVD.setText("GVD");
         btnGVD.setBorderPainted(true);
-        btnGVD.setPreferredSize(new Dimension(150, 50));
+        btnGVD.setPreferredSize(new Dimension(250, 150));
         btnGVD.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -133,7 +145,7 @@ public class MyPanel extends JPanel {
         final JButton btnBoltzmann = new JButton();
         btnBoltzmann.setText("Boltzmann");
         btnBoltzmann.setBorderPainted(true);
-        btnBoltzmann.setPreferredSize(new Dimension(150, 50));
+        btnBoltzmann.setPreferredSize(new Dimension(250, 150));
         btnBoltzmann.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,6 +159,7 @@ public class MyPanel extends JPanel {
         vBox.add(btnArnold);
         vBox.add(btnLogistic);
         vBox.add(btnMagic);
+        vBox.add(btnMix);
         vBox.add(btnInformationEntropy);
         vBox.add(btnCov);
         vBox.add(btnMass);
@@ -158,7 +171,7 @@ public class MyPanel extends JPanel {
 
     private void initDrawBoard() {
         ImageIcon srcImage = new ImageIcon("sample.jpg");
-        srcImage = new ImageIcon(srcImage.getImage().getScaledInstance(400, 400, Image.SCALE_DEFAULT));
+        srcImage = new ImageIcon(srcImage.getImage().getScaledInstance(500, 500, Image.SCALE_DEFAULT));
         srcLable = new JLabel();
         desLabel = new JLabel();
         evaluation = Box.createVerticalBox();
@@ -179,7 +192,7 @@ public class MyPanel extends JPanel {
         String[] temp = t.split("\r\n");
         for (String i : temp) {
             JLabel T = new JLabel(i);
-            T.setFont(new Font("宋体", Font.PLAIN, 20));
+            T.setFont(new Font("宋体", Font.PLAIN, 30));
             evaluation.add(T);
         }
         evaluation.repaint();
